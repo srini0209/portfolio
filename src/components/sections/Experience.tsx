@@ -3,6 +3,13 @@
 import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Calendar, MapPin, ArrowRight } from 'lucide-react'
+import { Playfair_Display } from 'next/font/google'
+import Link from 'next/link'
+const PlayfairDisplay = Playfair_Display({
+    variable: "--font-playfair-display",
+    subsets: ["latin"],
+    weight: "400",
+});
 
 const EXPERIENCES = [
     {
@@ -22,7 +29,7 @@ const EXPERIENCES = [
 
 export function Experience() {
     return (
-        <section id="experience" className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <section id="experience" className="py-20 floating-diamond">
 
             <div className="container mx-auto px-4">
                 <motion.div
@@ -33,7 +40,7 @@ export function Experience() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl font-bold mb-4">Work Experience</h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto">
+                    <p className={`text-muted-foreground max-w-2xl mx-auto !${PlayfairDisplay.variable}`} style={{fontFamily:'playfair Display, sans-serif'}}>
                         A journey through my professional development, building scalable applications and growing technical expertise
                     </p>
                 </motion.div>
@@ -128,20 +135,20 @@ export function Experience() {
                                 I'm always interested in discussing new opportunities and exciting projects.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                                <a
+                                <Link
                                     href="#contact"
                                     className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-2 text-sm font-medium hover:bg-primary/90 transition-colors"
                                 >
                                     Get In Touch
-                                </a>
-                                <a
-                                    href="/resume.pdf"
+                                </Link>
+                                <Link
+                                    href="/Seenivasan-Resume.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
                                 >
                                     Download Resume
-                                </a>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>

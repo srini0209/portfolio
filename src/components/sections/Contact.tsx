@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Mail, MapPin, Phone, Send } from 'lucide-react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -15,21 +16,25 @@ export function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
     try {
-      const formDataToSend = new FormData()
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataToSend.append(key, value)
-      })
-      formDataToSend.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'your_key_here')
+      if (!executeRecaptcha) {
+        setSubmitStatus('error')
+        return
+      }
 
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // 🔑 Get invisible reCAPTCHA token
+      const token = await executeRecaptcha('contact_form')
+
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: formDataToSend
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, token }),
       })
 
       if (response.ok) {
@@ -44,6 +49,7 @@ export function Contact() {
       setIsSubmitting(false)
     }
   }
+
 
   return (
     <section id="contact" className="py-20 bg-secondary/30">
@@ -68,7 +74,7 @@ export function Contact() {
             className="space-y-6"
           >
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-            
+
             <div className="flex items-center space-x-4">
               <Mail className="text-primary" size={24} />
               <div>
@@ -99,7 +105,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Card>
+            <Card className='shadow-lg'>
               <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
@@ -107,7 +113,7 @@ export function Contact() {
                       type="text"
                       placeholder="Your Name"
                       value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                       required
                     />
@@ -115,7 +121,7 @@ export function Contact() {
                       type="email"
                       placeholder="Your Email"
                       value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                       required
                     />
@@ -124,7 +130,7 @@ export function Contact() {
                     type="text"
                     placeholder="Subject"
                     value={formData.subject}
-                    onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                   />
@@ -132,11 +138,11 @@ export function Contact() {
                     placeholder="Your Message"
                     rows={6}
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                     required
                   />
-                  
+
                   <Button
                     type="submit"
                     className="w-full"

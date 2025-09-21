@@ -4,7 +4,9 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/Card'
 export function About() {
     return (
-        <section id="about" className="py-20 bg-secondary/30">
+        // <section id="about" className="py-20 bg-secondary/30">
+        <section id="about" className="py-20 relative floating-shapes ">
+
             <div className="container mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -13,7 +15,11 @@ export function About() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl font-bold mb-4">About Me</h2>
+                    <h2 className="text-4xl font-bold mb-4 text-primary">
+                        About Me
+                    </h2>
+
+
                     <p className="text-muted-foreground max-w-2xl mx-auto">
                         Passionate full-stack developer with 4+ years of experience building scalable web applications
                     </p>
@@ -26,7 +32,9 @@ export function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <Card>
+                        {/* <Card> */}
+                        <Card className="glass-effect hover:shadow-xl hover:shadow-primary/20 transition-all duration-300">
+
                             <CardContent className="p-8">
                                 <h3 className="text-2xl font-semibold mb-4">My Story</h3>
                                 <p className="text-muted-foreground mb-4">
@@ -53,6 +61,8 @@ export function About() {
                             <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
                                 4+
                             </div>
+                           
+
                             <div>
                                 <h4 className="font-semibold">Years Experience</h4>
                                 <p className="text-muted-foreground">Professional Development</p>
