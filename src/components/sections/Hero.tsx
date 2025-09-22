@@ -27,18 +27,19 @@ export function Hero() {
         <h1 className="text-4xl md:text-6xl font-bold leading-tight">
           Hello, I'm <span className="text-primary">Seenivasan</span>
         </h1>
-        <h2 className="text-xl md:text-2xl text-muted">
+        {/* <h2 className="text-xl md:text-2xl text-muted">
           Full-Stack Developer based in Chennai, India
-        </h2>
+        </h2> */}
+        <TypingRole />
         <p className="text-muted max-w-2xl">
           I build scalable and elegant web applications using modern technologies like React, Next.js, and TailwindCSS.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link href="#experience">
-            <Button size="lg">View My Work</Button>
+            <Button size="lg" className='cursor-pointer'>View My Work</Button>
           </Link>
-          <Link href="/Seenivasan-Resume.pdf" target='_blank' >
-            <Button variant="outline" size="lg">Download Resume</Button>
+          <Link href="/Seenivasan-Resume.pdf" target='_blank'>
+            <Button variant="outline" size="lg" className='cursor-pointer'>Download Resume</Button>
           </Link>
         </div>
       </div>

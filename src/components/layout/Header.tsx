@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Menu, X, Sun, Moon } from 'lucide-react'
+import Link from 'next/link'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -40,15 +41,15 @@ export function Header() {
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#" className="text-2xl font-bold text-primary">
-          John Doe
-        </a>
+        <Link href="#" className="text-2xl font-bold text-primary">
+          Seenivasan
+        </Link>
 
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map(item => (
-            <a key={item.href} href={item.href} className="text-foreground hover:text-primary transition-colors">
+            <Link key={item.href} href={item.href} className="text-foreground hover:text-primary transition-colors">
               {item.label}
-            </a>
+            </Link>
           ))}
           <Button
             variant="ghost"
