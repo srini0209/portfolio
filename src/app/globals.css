@@ -7,8 +7,10 @@
    Theme Variables (Light Mode)
    ================================ */
 :root {
-  --background: #f8fafc; /* Light background for the entire body */
-  --foreground: #1e293b; /* Default text color in light mode */
+  /* --background: #f8fafc; Light background for the entire body */
+  /* --foreground: #1e293b; Default text color in light mode */
+  --background: #0f172a; /* Dark background for the entire body */
+  --foreground: #f1f5f9; /* Light text color in dark mode */
   --primary: #6366f1; /* Indigo accent for buttons/links */
   --secondary: #14b8a6; /* Teal accent for secondary elements */
   --muted: #64748b; /* Muted text (subtitles, descriptions) */
@@ -17,13 +19,13 @@
 /* ================================
    Theme Variables (Dark Mode)
    ================================ */
-.dark {
+/* .dark {
   --background: #0f172a; /* Dark background for the entire body */
-  --foreground: #f1f5f9; /* Light text color in dark mode */
-  --primary: #818cf8; /* Softer Indigo for dark mode */
-  --secondary: #2dd4bf; /* Softer Teal for dark mode */
-  --muted: #94a3b8; /* Muted text in dark mode */
-}
+/* --foreground: #f1f5f9; Light text color in dark mode */
+/* --primary: #818cf8; Softer Indigo for dark mode */
+/* --secondary: #2dd4bf; /* Softer Teal for dark mode */
+/* --muted: #94a3b8; Muted text in dark mode */
+/* } */
 
 /* ================================
    Tailwind Theme Extension
@@ -40,8 +42,8 @@
    ================================ */
 body {
   background: var(--background); /* Apply theme background */
-  color: var(--foreground); /* Apply theme text color */
-  font-family: 'Be Vietnam Pro', sans-serif; /* Fallback font stack */
+  color: #f1f5f9; /* Apply theme text color */
+  font-family: "Be Vietnam Pro", sans-serif; /* Fallback font stack */
 }
 
 /* ================================
@@ -117,7 +119,7 @@ body {
 .floating-shapes-ring::before {
   content: "";
   position: absolute;
-  top: 15%;
+  /* top: 15%; */
   right: 15%;
   width: 160px;
   height: 160px;
@@ -126,11 +128,11 @@ body {
   animation: float 10s ease-in-out infinite;
   z-index: -1;
 }
-.floating-shapes-ring::after {
+.floating-shapes-ring2::before {
   content: "";
   position: absolute;
-  top: 10%;
-  left: 10%;
+  margin-top:200px;
+  left: 20%;
   width: 140px;
   height: 140px;
   background: linear-gradient(
@@ -138,7 +140,7 @@ body {
     hsla(158, 85%, 45%, 0.15),
     hsla(238, 75%, 65%, 0.15)
   );
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  border-radius: 40% 70% 70% 30% / 30% 30% 70% 70%;
   animation: float 8s ease-in-out infinite reverse;
   z-index: -1;
 }
@@ -169,6 +171,38 @@ body {
   border-radius: 8px;
   animation: float 12s ease-in-out infinite;
 }
+.floating-pentagon::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  left: 10%;
+  background: linear-gradient(
+    135deg,
+    hsla(238, 75%, 65%, 0.15),
+    hsla(188, 85%, 45%, 0.15)
+  );
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  border-radius: 8px;
+  animation: float 12s ease-in-out infinite;
+}
+
+.floating-hexagon::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 200px;
+  margin-top:310px;
+  margin-left: -130px;
+  background: linear-gradient(
+    135deg,
+    hsla(238, 75%, 65%, 0.15),
+    hsla(188, 85%, 45%, 0.15)
+  );
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  border-radius: 8px;
+  animation: float 12s ease-in-out infinite;
+}
 
 /* ================================
    Skill Badge (hover effect)
@@ -196,7 +230,7 @@ body {
 /* ================================
    Custom Scrollbar
    ================================ */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
@@ -208,7 +242,7 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, hsl(238, 75%, 75%), hsl(188, 85%, 55%));
-}
+} */
 
 /* ================================
    Smooth Scrolling
@@ -275,3 +309,40 @@ html {
   mask-composite: exclude;
   animation: gradientShift 6s ease infinite;
 }
+
+.contact-btn {
+  background-color: #1a232e;
+  color: #f1f5f9;
+  border: 1px solid #f1f5f9;
+  transition: box-shadow 0.3s ease;
+}
+.contact-btn:hover {
+  box-shadow: 0 0 10px #f1f5f9;
+}
+
+.contact-btn2 {
+  position: relative;
+  background-color: #1a232e;
+  color: #f1f5f9;
+  border: none;
+  padding: 12px 24px;
+  overflow: hidden;
+}
+
+.contact-btn2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #f1f5f9;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.contact-btn2:hover::before {
+  transform: scaleX(1);
+}
+

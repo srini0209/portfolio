@@ -7,19 +7,19 @@ const SKILLS = {
   frontend: {
     title: "Frontend Development",
     icon: "🎨",
-    skills: ["React", "Next.js", "TypeScript", "TailwindCSS", "Redux", "Framer Motion"],
+    skills: ["JavaScript","React", "Next.js", "TypeScript", "TailwindCSS", "Redux"],
     color: "primary"
   },
   backend: {
     title: "Backend Development", 
     icon: "⚡",
-    skills: ["Node.js", "MongoDB", "Express.js", "REST APIs", "GraphQL", "PostgreSQL"],
+    skills: ["Node.js", "MongoDB", "Express.js", "REST APIs", "MySQL", "PostgreSQL"],
     color: "accent"
   },
   tools: {
     title: "Tools & Technologies",
     icon: "🛠️", 
-    skills: ["Git", "Docker", "AWS", "Vercel", "Figma", "VS Code"],
+    skills: ["Git", "Postman", "WordPress", "SEO Best Practices", "Figma", "VS Code"],
     color: "secondary"
   }
 }
@@ -36,7 +36,7 @@ export function Skills() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-foreground">
               Skills & Technologies
             </span>
           </h2>
@@ -54,7 +54,9 @@ export function Skills() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <Card className="h-full card-gradient border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
+              <Card className="h-full card-gradient border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10" 
+              style={{ boxShadow: "0 4px 12px rgba(241, 245, 249, 0.1)"}}
+              >
                 <CardContent className="p-8 text-center">
                   <div className="text-4xl mb-4">{category.icon}</div>
                   <h3 className={`text-xl font-semibold mb-6 text-${category.color}`}>

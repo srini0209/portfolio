@@ -21,7 +21,7 @@ export function About() {
 
 
                     <p className="text-muted-foreground max-w-2xl mx-auto">
-                        Passionate full-stack developer with 4+ years of experience building scalable web applications
+                        Passionate full-stack developer with 3+ years of experience building scalable web applications
                     </p>
                 </motion.div>
 
@@ -33,7 +33,7 @@ export function About() {
                         transition={{ duration: 0.6 }}
                     >
                         {/* <Card> */}
-                        <Card className="glass-effect hover:shadow-xl hover:shadow-primary/20 transition-all duration-300">
+                        <Card className="glass-effect hover:shadow-xl hover:shadow-primary/20 transition-all duration-300" style={{ boxShadow: "0 4px 12px rgba(241, 245, 249, 0.1)"}}>
 
                             <CardContent className="p-8">
                                 <h3 className="text-2xl font-semibold mb-4">My Story</h3>
@@ -59,7 +59,7 @@ export function About() {
                     >
                         <div className="flex items-center space-x-4">
                             <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
-                                4+
+                                3+
                             </div>
                            
 
@@ -70,7 +70,7 @@ export function About() {
                         </div>
                         <div className="flex items-center space-x-4">
                             <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
-                                50+
+                                25+
                             </div>
                             <div>
                                 <h4 className="font-semibold">Projects Completed</h4>
