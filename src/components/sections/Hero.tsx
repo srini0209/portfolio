@@ -69,7 +69,13 @@ export function Hero() {
         >
           <Github />
         </Link>
-        <Mail className="cursor-pointer" />
+        <Link
+          href={"mailto:Seenivasanthiruppathi@outlook.com"}
+          className="text-foreground cursor-pointer"
+          title="Email"
+        >
+          <Mail className="cursor-pointer" />
+        </Link>
       </div>
     </section>
   );
@@ -143,7 +149,7 @@ function TypingRole() {
       <span className="text-xl md:text-2xl font-semibold text-muted-foreground">
         <span
           className="
-            bg-clip-text text-[#0c4a6e] dark:text-white 
+            bg-clip-text text-foreground
             bg-gradient-to-r from-accent via-secondary to-primary
           "
         >
