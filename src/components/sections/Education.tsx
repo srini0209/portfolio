@@ -30,7 +30,7 @@ export function Education() {
         </motion.div>
 
         <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-9 top-0 h-full w-0.5 bg-border -translate-x-1/2"></div>
+          
           {educationData.map((edu, index) => (
             <motion.div
               key={index}
@@ -38,9 +38,9 @@ export function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="relative pl-20 mb-12"
+              className="relative mb-12"
             >
-              <div className="absolute left-9 top-2 w-4 h-4 bg-primary rounded-full border-4 border-background -translate-x-1/2"></div>
+              <div className="absolute  top-2 w-4 h-4 bg-primary rounded-full border-4 border-background -translate-x-1/2"></div>
               <motion.div whileHover={{ scale: 1.03 }}>
                 <Card className="shadow-lg glass-effect" style={{ boxShadow: "0 4px 12px rgba(241, 245, 249, 0.1)"}}>
                   <CardContent className="p-6">
