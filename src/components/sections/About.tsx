@@ -42,10 +42,7 @@ export function About() {
                                     that make a difference. Over the years, I've worked with various technologies and
                                     frameworks, always staying curious and eager to learn.
                                 </p>
-                                <p className="text-muted-foreground">
-                                    When I'm not coding, you'll find me exploring new technologies, contributing to
-                                    open-source projects, or mentoring aspiring developers.
-                                </p>
+                                
                             </CardContent>
                         </Card>
                     </motion.div>

@@ -54,7 +54,7 @@ export function Hero() {
       </div>
       <div className="flex gap-5 justify-center items-center mt-8">
         <Link
-          href="https://linkedin/in/seenivasan-thiruppathi"
+          href="https://www.linkedin.com/in/seenivasan-thiruppathi/"
           target="_blank"
           title="LinkedIn"
           className="cursor-pointer"
